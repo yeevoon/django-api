@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+
     {% if messages %}
     {% for message in messages %}
         <div class="alert alert-warning alert-dismissable" role="alert">
@@ -26,7 +28,13 @@
             </tr>
             {% endfor %}
     {% endif %}
-</table>
+    </table>
+    
+    {% if all_images %}
+        {% for image in all_images %}
+            <img src= "media/{{image.uploaded_file}}" style="width:100px">
+        {% endfor %}
+    {% endif %} 
 {% endblock %}
 
 
